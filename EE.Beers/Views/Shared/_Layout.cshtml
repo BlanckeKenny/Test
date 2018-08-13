@@ -30,12 +30,7 @@
         </nav>
         <div class="row mt-5">
             <aside class="col-4">
-                <h3>Breweries</h3>
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action" href="/ByBrewery/0">Brewery One</a>
-                    <a class="list-group-item list-group-item-action active" href="/ByBrewery/0">Brewery Two</a>
-                    <a class="list-group-item list-group-item-action" href="/ByBrewery/0">...etc...</a>
-                </div>
+                @await Component.InvokeAsync("BrouwersLijst")
             </aside>
             <main class="col-8">
                 @RenderBody()

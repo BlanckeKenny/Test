@@ -1,0 +1,18 @@
+﻿@model EE.Beers.ViewModels.Components.BrouwersComponentVm
+
+<h3>Brouwerijen</h3>
+<div class="list-group">
+    @foreach (var brouwer in Model.AlleBrouwerijen)
+    {
+        <li>
+            <a class="list-group-item list-group-item-action" href="/ByBrewery/@brouwer.Id">@brouwer.Name</a>
+        </li>
+    }
+</div>
+
+
+
+
+
+
+
