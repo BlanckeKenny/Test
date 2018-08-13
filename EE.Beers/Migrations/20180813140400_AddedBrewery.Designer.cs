@@ -11,8 +11,8 @@ using System;
 namespace EE.Beers.Migrations
 {
     [DbContext(typeof(BeersContext))]
-    [Migration("20180606024139_BeerGenesis")]
-    partial class BeerGenesis
+    [Migration("20180813140400_AddedBrewery")]
+    partial class AddedBrewery
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,11 +30,16 @@ namespace EE.Beers.Migrations
 
                     b.Property<byte>("BitteringIndex");
 
+                    b.Property<long?>("BrouwerijForeignKey")
+                        .IsRequired();
+
                     b.Property<bool>("IsActivelyBrewed");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BrouwerijForeignKey");
 
                     b.ToTable("Beers");
                 });
@@ -52,6 +57,20 @@ namespace EE.Beers.Migrations
                     b.ToTable("BeerFlavor");
                 });
 
+            modelBuilder.Entity("EE.Beers.Entities.Brouwerij", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brouwerijen");
+                });
+
             modelBuilder.Entity("EE.Beers.Entities.Flavor", b =>
                 {
                     b.Property<long>("Id")
@@ -62,6 +81,14 @@ namespace EE.Beers.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Flavors");
+                });
+
+            modelBuilder.Entity("EE.Beers.Entities.Beer", b =>
+                {
+                    b.HasOne("EE.Beers.Entities.Brouwerij", "Brouwerij")
+                        .WithMany("BierenVanBrouwerij")
+                        .HasForeignKey("BrouwerijForeignKey")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EE.Beers.Entities.BeerFlavor", b =>

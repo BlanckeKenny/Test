@@ -11,9 +11,10 @@ using System;
 namespace EE.Beers.Migrations
 {
     [DbContext(typeof(BeersContext))]
-    partial class BeersContextModelSnapshot : ModelSnapshot
+    [Migration("20180813143451_AddedBrewery1")]
+    partial class AddedBrewery1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

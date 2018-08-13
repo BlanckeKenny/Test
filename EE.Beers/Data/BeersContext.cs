@@ -13,17 +13,22 @@ namespace EE.Beers.Data
 
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Flavor> Flavors { get; set; }
+        public DbSet<Brouwerij> Brouwerijen{get;set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<BeerFlavor>()
+            
+            modelBuilder
+                .Entity<BeerFlavor>()
                 .HasKey(bfl => new { bfl.BeerId, bfl.FlavorId });
             
-            modelBuilder.Entity<Beer>()
+            modelBuilder
+                .Entity<Beer>()
                 .HasMany(b => b.Flavors)
                 .WithOne(bfl => bfl.Beer);
-
-            modelBuilder.Entity<Flavor>()
+           
+            modelBuilder
+                .Entity<Flavor>()
                 .HasMany(f => f.BeersWithFlavor)
                 .WithOne(bfl => bfl.Flavor);
        

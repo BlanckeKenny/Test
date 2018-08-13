@@ -48,6 +48,12 @@ namespace EE.Beers.Controllers
             };
             return View("Index", indexvm);
         }
+
+/*        public async Task<IActionResult> FindByBrewer(long id)
+        {
+            var Brouwers = await context.Beers
+                .Include()
+        }*/
         
     }
 }

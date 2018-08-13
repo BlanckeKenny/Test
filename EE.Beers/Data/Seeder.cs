@@ -13,32 +13,35 @@ namespace EE.Beers.Data
             // Are there any products in the db?
             if (context.Beers.Any())
                 return;   // DB has already been seeded
-            
-            //add breweries HERE
-            //
-            //  \m/
-            //
+
+            var brouwerijen = new Brouwerij[]
+            {
+                new Brouwerij {Name = "West Brewco"},
+                new Brouwerij {Name = "East Brewco"},
+                new Brouwerij {Name = "South Brewco"},
+                new Brouwerij {Name = "North Brewco"}
+            };
 
 
             var beers = new Beer[]
             {
-                new Beer { Name = "Ahool Ale", IsActivelyBrewed = true, BitteringIndex = 33, AlcoholByVolume = 5.4f, /* link to brewery here */ },
-                new Beer { Name = "Agogwe Ale", IsActivelyBrewed = true, BitteringIndex = 28, AlcoholByVolume = 2.9f, /* link to brewery here */ },
-                new Beer { Name = "Aswang Ale", IsActivelyBrewed = true, BitteringIndex = 31, AlcoholByVolume = 4.2f, /* link to brewery here */ },
-                new Beer { Name = "Buru's Barley Wine", IsActivelyBrewed = true, BitteringIndex = 76, AlcoholByVolume = 11.1f, /* link to brewery here */ },
-                new Beer { Name = "Hyote Chocolate Stout", IsActivelyBrewed = true, BitteringIndex = 78, AlcoholByVolume = 7.4f, /* link to brewery here */ },
-                new Beer { Name = "Igopogo Pilsner", IsActivelyBrewed = true, BitteringIndex = 36, AlcoholByVolume = 5.7f, /* link to brewery here */ },
-                new Beer { Name = "Jackalobe Lager", IsActivelyBrewed = true, BitteringIndex = 29, AlcoholByVolume = 3.3f, /* link to brewery here */ },
-                new Beer { Name = "Mahamba Barley Wine", IsActivelyBrewed = true, BitteringIndex = 57, AlcoholByVolume = 9.7f, /* link to brewery here */ },
-                new Beer { Name = "Megalodon Pale Ale", IsActivelyBrewed = true, BitteringIndex = 99, AlcoholByVolume = 5.7f, /* link to brewery here */ },
-                new Beer { Name = "Pope Lick Porter", IsActivelyBrewed = true, BitteringIndex = 39, AlcoholByVolume = 6.5f, /* link to brewery here */ },
-                new Beer { Name = "Chocolate Pukwudgie Stout", IsActivelyBrewed = true, BitteringIndex = 35, AlcoholByVolume = 12.2f, /* link to brewery here */ },
-                new Beer { Name = "Sharlie Pilsner", IsActivelyBrewed = true, BitteringIndex = 31, AlcoholByVolume = 4.1f, /* link to brewery here */ },
-                new Beer { Name = "Sigbin Stout", IsActivelyBrewed = false, BitteringIndex = 65, AlcoholByVolume = 8.1f, /* link to brewery here */ },
-                new Beer { Name = "Snallygaster Pale Ale", IsActivelyBrewed = false, BitteringIndex = 89, AlcoholByVolume = 9.7f, /* link to brewery here */ },
-                new Beer { Name = "Tikibalang Barley Wine", IsActivelyBrewed = true, BitteringIndex = 45, AlcoholByVolume = 9.6f, /* link to brewery here */ },
-                new Beer { Name = "Pale Popobawa Ale", IsActivelyBrewed = true, BitteringIndex = 30, AlcoholByVolume = 4.4f, /* link to brewery here */ },
-                new Beer { Name = "North Adjule Lager", IsActivelyBrewed = true, BitteringIndex = 30, AlcoholByVolume = 3.7f, /* link to brewery here */ },
+                new Beer { Name = "Ahool Ale",                 IsActivelyBrewed = true, BitteringIndex = 33, AlcoholByVolume = 5.4f,  Brouwerij = brouwerijen[0] },
+                new Beer { Name = "Agogwe Ale",                IsActivelyBrewed = true, BitteringIndex = 28, AlcoholByVolume = 2.9f,  Brouwerij = brouwerijen[1] },
+                new Beer { Name = "Aswang Ale",                IsActivelyBrewed = true, BitteringIndex = 31, AlcoholByVolume = 4.2f,  Brouwerij = brouwerijen[2] },
+                new Beer { Name = "Buru's Barley Wine",        IsActivelyBrewed = true, BitteringIndex = 76, AlcoholByVolume = 11.1f, Brouwerij = brouwerijen[3] },
+                new Beer { Name = "Hyote Chocolate Stout",     IsActivelyBrewed = true, BitteringIndex = 78, AlcoholByVolume = 7.4f,  Brouwerij = brouwerijen[0] },
+                new Beer { Name = "Igopogo Pilsner",           IsActivelyBrewed = true, BitteringIndex = 36, AlcoholByVolume = 5.7f,  Brouwerij = brouwerijen[1] },
+                new Beer { Name = "Jackalobe Lager",           IsActivelyBrewed = true, BitteringIndex = 29, AlcoholByVolume = 3.3f,  Brouwerij = brouwerijen[2] },
+                new Beer { Name = "Mahamba Barley Wine",       IsActivelyBrewed = true, BitteringIndex = 57, AlcoholByVolume = 9.7f,  Brouwerij = brouwerijen[3] },
+                new Beer { Name = "Megalodon Pale Ale",        IsActivelyBrewed = true, BitteringIndex = 99, AlcoholByVolume = 5.7f,  Brouwerij = brouwerijen[0] },
+                new Beer { Name = "Pope Lick Porter",          IsActivelyBrewed = true, BitteringIndex = 39, AlcoholByVolume = 6.5f,  Brouwerij = brouwerijen[1] },
+                new Beer { Name = "Chocolate Pukwudgie Stout", IsActivelyBrewed = true, BitteringIndex = 35, AlcoholByVolume = 12.2f, Brouwerij = brouwerijen[2] },
+                new Beer { Name = "Sharlie Pilsner",           IsActivelyBrewed = true, BitteringIndex = 31, AlcoholByVolume = 4.1f,  Brouwerij = brouwerijen[3] },
+                new Beer { Name = "Sigbin Stout",              IsActivelyBrewed = false,BitteringIndex = 65, AlcoholByVolume = 8.1f,  Brouwerij = brouwerijen[0] },
+                new Beer { Name = "Snallygaster Pale Ale" ,    IsActivelyBrewed = false,BitteringIndex = 89, AlcoholByVolume = 9.7f,  Brouwerij = brouwerijen[1] },
+                new Beer { Name = "Tikibalang Barley Wine",    IsActivelyBrewed = true, BitteringIndex = 45, AlcoholByVolume = 9.6f,  Brouwerij = brouwerijen[2] },
+                new Beer { Name = "Pale Popobawa Ale",         IsActivelyBrewed = true, BitteringIndex = 30, AlcoholByVolume = 4.4f,  Brouwerij = brouwerijen[3] },
+                new Beer { Name = "North Adjule Lager",        IsActivelyBrewed = true, BitteringIndex = 30, AlcoholByVolume = 3.7f,  Brouwerij = brouwerijen[0] },
             };
 
             var flavors = new Flavor[]
@@ -68,36 +71,36 @@ namespace EE.Beers.Data
 
             var beerflavors = new BeerFlavor[]
             {
-                new BeerFlavor { Beer = beers[0], Flavor = flavors[0] },
-                new BeerFlavor { Beer = beers[1], Flavor = flavors[1] },
-                new BeerFlavor { Beer = beers[1], Flavor = flavors[19] },
-                new BeerFlavor { Beer = beers[2], Flavor = flavors[2] },
-                new BeerFlavor { Beer = beers[2], Flavor = flavors[3] },
-                new BeerFlavor { Beer = beers[3], Flavor = flavors[4] },
-                new BeerFlavor { Beer = beers[3], Flavor = flavors[5] },
-                new BeerFlavor { Beer = beers[3], Flavor = flavors[6] },
-                new BeerFlavor { Beer = beers[4], Flavor = flavors[7] },
-                new BeerFlavor { Beer = beers[4], Flavor = flavors[8] },
-                new BeerFlavor { Beer = beers[5], Flavor = flavors[9] },
-                new BeerFlavor { Beer = beers[5], Flavor = flavors[20] },
-                new BeerFlavor { Beer = beers[6], Flavor = flavors[10] },
-                new BeerFlavor { Beer = beers[6], Flavor = flavors[11] },
-                new BeerFlavor { Beer = beers[7], Flavor = flavors[9] },
-                new BeerFlavor { Beer = beers[7], Flavor = flavors[4] },
-                new BeerFlavor { Beer = beers[8], Flavor = flavors[20] },
-                new BeerFlavor { Beer = beers[8], Flavor = flavors[12] },
-                new BeerFlavor { Beer = beers[8], Flavor = flavors[13] },
-                new BeerFlavor { Beer = beers[9], Flavor = flavors[14] },
-                new BeerFlavor { Beer = beers[9], Flavor = flavors[15] },
-                new BeerFlavor { Beer = beers[9], Flavor = flavors[8] },
-                new BeerFlavor { Beer = beers[10], Flavor = flavors[8] },
+                new BeerFlavor { Beer = beers[0],  Flavor = flavors[0]  },
+                new BeerFlavor { Beer = beers[1],  Flavor = flavors[1]  },
+                new BeerFlavor { Beer = beers[1],  Flavor = flavors[19] },
+                new BeerFlavor { Beer = beers[2],  Flavor = flavors[2]  },
+                new BeerFlavor { Beer = beers[2],  Flavor = flavors[3]  },
+                new BeerFlavor { Beer = beers[3],  Flavor = flavors[4]  },
+                new BeerFlavor { Beer = beers[3],  Flavor = flavors[5]  },
+                new BeerFlavor { Beer = beers[3],  Flavor = flavors[6]  },
+                new BeerFlavor { Beer = beers[4],  Flavor = flavors[7]  },
+                new BeerFlavor { Beer = beers[4],  Flavor = flavors[8]  },
+                new BeerFlavor { Beer = beers[5],  Flavor = flavors[9]  },
+                new BeerFlavor { Beer = beers[5],  Flavor = flavors[20] },
+                new BeerFlavor { Beer = beers[6],  Flavor = flavors[10] },
+                new BeerFlavor { Beer = beers[6],  Flavor = flavors[11] },
+                new BeerFlavor { Beer = beers[7],  Flavor = flavors[9]  },
+                new BeerFlavor { Beer = beers[7],  Flavor = flavors[4]  },
+                new BeerFlavor { Beer = beers[8],  Flavor = flavors[20] },
+                new BeerFlavor { Beer = beers[8],  Flavor = flavors[12] },
+                new BeerFlavor { Beer = beers[8],  Flavor = flavors[13] },
+                new BeerFlavor { Beer = beers[9],  Flavor = flavors[14] },
+                new BeerFlavor { Beer = beers[9],  Flavor = flavors[15] },
+                new BeerFlavor { Beer = beers[9],  Flavor = flavors[8]  },
+                new BeerFlavor { Beer = beers[10], Flavor = flavors[8]  },
                 new BeerFlavor { Beer = beers[10], Flavor = flavors[16] },
                 new BeerFlavor { Beer = beers[11], Flavor = flavors[17] },
                 new BeerFlavor { Beer = beers[12], Flavor = flavors[16] },
-                new BeerFlavor { Beer = beers[12], Flavor = flavors[7] },
+                new BeerFlavor { Beer = beers[12], Flavor = flavors[7]  },
                 new BeerFlavor { Beer = beers[13], Flavor = flavors[13] },
                 new BeerFlavor { Beer = beers[13], Flavor = flavors[18] },
-                new BeerFlavor { Beer = beers[14], Flavor = flavors[6] },
+                new BeerFlavor { Beer = beers[14], Flavor = flavors[6]  },
                 new BeerFlavor { Beer = beers[15], Flavor = flavors[19] },
                 new BeerFlavor { Beer = beers[16], Flavor = flavors[11] },
             };

@@ -9,20 +9,25 @@
             <th scope="col">Beer</th>
             <th scope="col">Alc %</th>
             <th scope="col">Flavors</th>
+            <th scope="col">Brouwerij</th>
         </tr>
     </thead>
     <tbody>
         @foreach(var beer in Model.Beers)
         {
-        <tr>
-            <td>@beer.Name</td>
-            <td>@beer.AlcoholByVolume</td>
-            <td>@foreach (var flavor in beer.Flavors)
-            {
-                <a asp-action="FindByFlavor" asp-controller="Home" asp-route-id="@flavor.FlavorId"><span class="badge bg-info text-white">@flavor.Flavor.Name</span></a>
-            }
-            </td>
-        </tr>
+            <tr>
+                <td>@beer.Name</td>
+                <td>@beer.AlcoholByVolume</td>
+                <td>@foreach (var flavor in beer.Flavors)
+                    {
+                        <a asp-action="FindByFlavor" asp-controller="Home" asp-route-id="@flavor.FlavorId"><span class="badge bg-info text-white">@flavor.Flavor.Name</span></a>
+                    }
+                </td>
+                <td>
+                   x
+                </td>
+            </tr>
+            
         }
     </tbody>
     <tfoot>
