@@ -22,7 +22,7 @@ namespace EE.Beers.Components
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var AlleBrouwers = await _context.Brouwerijen.OrderBy(b => b.Name).ToListAsync();
-            BrouwersComponentVm vm = new BrouwersComponentVm {AlleBrouwerijen = AlleBrouwers};
+            BrouwersComponentVm vm = new BrouwersComponentVm {AlleBrouwerijen = AlleBrouwers.OrderBy(d => d.Name) };
             return View(vm);
         }
     }

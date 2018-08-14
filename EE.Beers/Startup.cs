@@ -57,6 +57,17 @@ namespace EE.Beers
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "findByBrewery",
+                    template: "ByBrewery/{id?}",
+                    defaults: new {Controller="Home", Action = "FindByBrewery"  }
+                    );
+                routes.MapRoute(
+                    name: "Search",
+                    template: "Home/Search/{id?}",
+                    defaults: new {controller = "Search", Action = "Search"}
+                );
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });

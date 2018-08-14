@@ -1,0 +1,27 @@
+﻿@model SearchIndexVm
+@{
+    ViewData["Title"] = "Search Page";
+}
+@*<h4>@Model.Title</h4>*@
+
+<h1>Find beers</h1>
+<form asp-action="Search" method="post">
+    <label asp-for="MinAlc">Minimum Alc. %</label>
+    <input asp-for="MinAlc">
+    <span asp-validation-for="MinAlc"></span>
+    <br/>
+    <label asp-for="MaxAlc"></label>
+    <input asp-for="MaxAlc"/>
+    <span asp-validation-for="MaxAlc"></span>
+    <br/>
+    <label asp-for="StartWith"></label>
+    <input asp-for="StartWith"/>
+    <span asp-validation-for="StartWith"></span>
+    <br/>
+    <label asp-for="ActiveBrewed"></label>
+    <input asp-for="ActiveBrewed"/>
+    <span asp-validation-for="ActiveBrewed"></span>
+    <br/>
+    <input type="submit" value="Submit">
+</form>
+

@@ -3,16 +3,24 @@
     ViewData["Title"] = "Home Page";
 }
 <h4>@Model.Title</h4>
-<table class="table mt-5" id="beer-table">
-    <thead class="thead-light">
+@if (Model.Beers == null)
+{
+    <p>
+        &laquo;Select a brewery in the menu on the left.
+    </p>
+}
+else
+{
+    <table class="table mt-5" id="beer-table">
+        <thead class="thead-light">
         <tr>
             <th scope="col">Beer</th>
             <th scope="col">Alc %</th>
             <th scope="col">Flavors</th>
             <th scope="col">Brouwerij</th>
         </tr>
-    </thead>
-    <tbody>
+        </thead>
+        <tbody>
         @foreach(var beer in Model.Beers)
         {
             <tr>
@@ -29,8 +37,10 @@
             </tr>
             
         }
-    </tbody>
-    <tfoot>
+        </tbody>
+        <tfoot>
         <th colspan="3"></th>
-    </tfoot>
-</table>
+        </tfoot>
+    </table>
+}
+

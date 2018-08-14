@@ -49,11 +49,30 @@ namespace EE.Beers.Controllers
             return View("Index", indexvm);
         }
 
-/*        public async Task<IActionResult> FindByBrewer(long id)
+       /* [Route("ByBrewery/{id}")]*/
+        public async Task<IActionResult> FindByBrewery(long? id)
         {
-            var Brouwers = await context.Beers
-                .Include()
-        }*/
-        
+            Brouwerij brouwer = new Brouwerij();
+            
+            if (id != null)
+            {
+                brouwer = context.Brouwerijen.Find(id);
+            }
+
+            if (brouwer != null && id != null)
+            {
+                var bierenVanBrouwer = await context.Beers.Where(bier => bier.Brouwerij.Id == id)
+                    .Include(smaak => smaak.Flavors)
+                    .ThenInclude(a => a.Flavor)
+                    .ToListAsync();
+                var viewM = new HomeIndexVm {Beers = bierenVanBrouwer, Title = $"Bieren van brouwer {brouwer.Name}"};
+                return View("Index", viewM);
+            }
+            else
+            {
+                var vm = new HomeIndexVm {Beers = null};
+                return View("Index", vm);
+            }
+        }
     }
 }
